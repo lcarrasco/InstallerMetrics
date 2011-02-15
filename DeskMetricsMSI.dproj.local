@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010/11/03 13:09:55.245.dproj,C:\Users\Bernardo\Documents\RAD Studio\Projects\Project8.dproj=C:\Users\Bernardo\Documents\DeskMetrics\Componentes\componentDLL\MSI Custom Action\DeskMetricsMSI.dproj</Transaction>
+    <Transaction>2010/11/03 13:14:56.402.pas,C:\Users\Bernardo\Documents\DeskMetrics\Componentes\componentDLL\MSI Custom Action\Unit1.pas=C:\Users\Bernardo\Documents\DeskMetrics\Componentes\componentDLL\MSI Custom Action\MSI.pas</Transaction>
+    <Transaction>2010/11/03 13:15:44.481.pas,C:\Users\Bernardo\Documents\DeskMetrics\Componentes\componentDLL\MSI Custom Action\Unit1.pas=C:\Users\Bernardo\Documents\DeskMetrics\Componentes\componentDLL\MSI Custom Action\MSIUtils.pas</Transaction>
+  </Transactions>
+</BorlandProject>
