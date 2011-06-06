@@ -87,13 +87,13 @@
 					</VersionInfo>
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">DeskMetrics</VersionInfoKeys>
-						<VersionInfoKeys Name="FileDescription">DeskMetrics Installer x86 DLL</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">DeskMetrics Installer x86 DLL (Unicode)</VersionInfoKeys>
 						<VersionInfoKeys Name="FileVersion">1.2.0.0</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName">DeskMetricsInstaller.dll</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalCopyright">Copyright (c) 2010-2011 DeskMetrics</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalTrademarks"/>
 						<VersionInfoKeys Name="OriginalFilename">DeskMetricsInstaller.dll</VersionInfoKeys>
-						<VersionInfoKeys Name="ProductName">DeskMetricsMSI</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductName">DeskMetricsInstaller</VersionInfoKeys>
 						<VersionInfoKeys Name="ProductVersion">1.2.0.0</VersionInfoKeys>
 						<VersionInfoKeys Name="Comments"/>
 					</VersionInfoKeys>

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "DeskMetricsInstaller", "DeskMetricsInstaller\DeskMetricsInstaller.wixproj", "{11519FC1-A000-4899-BDE7-8DB413A8D100}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11519FC1-A000-4899-BDE7-8DB413A8D100}.Debug|x86.ActiveCfg = Debug|x86
+		{11519FC1-A000-4899-BDE7-8DB413A8D100}.Debug|x86.Build.0 = Debug|x86
+		{11519FC1-A000-4899-BDE7-8DB413A8D100}.Release|x86.ActiveCfg = Release|x86
+		{11519FC1-A000-4899-BDE7-8DB413A8D100}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

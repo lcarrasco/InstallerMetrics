@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="7126791c-ca92-49b8-a009-ea17c0bb8032" Name="DeskMetricsInstaller" Language="1033" Version="1.0.0.0" Manufacturer="DeskMetricsInstaller" UpgradeCode="58b5ec65-c390-4725-867c-ce4d7c45c135">
+    <Package InstallerVersion="200"
+                 Compressed="yes" />
+
+    <Media Id="1" />
+
+    <Directory Id="TARGETDIR"
+                   Name="SourceDir">
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ShortcutFolder"
+                           Name="My Application">
+          <Component Id="UninstallShortcutComponent"
+                               Guid="f81e0ecd-0282-4731-a6df-2305fc18da67">
+            <RegistryKey Root="HKCU"
+                                     Key="Software\My Application\Uninstall">
+              <RegistryValue Value="Something Was Here."
+                                           Type="string"
+                                           KeyPath="yes" />
+            </RegistryKey>
+            
+            <Shortcut Id="UninstallProduct"
+                                  Name="Uninstall My Application"
+                                  Target="[System64Folder]msiexec.exe"
+                                  Arguments="/x [ProductCode]"
+                                  Directory="ShortcutFolder"
+                                  Description="Uninstalls My Application" />
+
+            <RemoveFolder Id="RemoveShorcutFolder"
+                                      On="uninstall" />
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="TestUninstallShortcut"
+             Title="Test Uninstall Shortcut Feature"
+             Level="1">
+      <ComponentRef Id="UninstallShortcutComponent" />
+    </Feature>
+
+    <!-- Your Application ID -->
+    <Property Id="DeskMetricsID" Value="YOUR APPLICATION ID" />
+    
+    <!-- DeskMetrics DLL Reference-->
+    <Binary Id="DeskMetricsInstaller.dll" SourceFile="DeskMetricsInstaller.dll" />
+
+    <!-- Define Custom Actions -->
+    <CustomAction Id="DeskMetricsMSITrackInstallation" DllEntry="DeskMetricsMSITrackInstallation"
+    BinaryKey="DeskMetricsInstaller.dll" Execute="immediate" Return="ignore" />
+
+    <CustomAction Id="DeskMetricsMSITrackUninstallation" DllEntry="DeskMetricsMSITrackUninstallation"
+     BinaryKey="DeskMetricsInstaller.dll" Execute="immediate" Return="ignore" />
+
+    <!-- Define When Execute Custom Actions-->
+    <InstallExecuteSequence>
+      <Custom Action="DeskMetricsMSITrackInstallation" After="InstallInitialize">Not Installed</Custom>
+      <Custom Action="DeskMetricsMSITrackUninstallation" Before="InstallFinalize">REMOVE~="ALL"</Custom>
+    </InstallExecuteSequence>
+	</Product>
+</Wix>
