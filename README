@@ -1,15 +1,15 @@
 { **********************************************************************}
 {                                                                       }
-{     DeskMetrics MSI Custom Action DLL                                 }
+{     DeskMetrics Installer Library		                        }
 {     Copyright (c) 2010-2011 DeskMetrics Limited                       }
-{           														    }	
-{	  Compiled with Embarcadero Delphi 2009								}
+{           								}	
+{	  Compiled with Embarcadero Delphi 2009				}
 {                                                                       }
 {     http://deskmetrics.com                                            }
 {     http://support.deskmetrics.com                                    }
 {                                                                       }
-{     GitHub 				                                            }
-{     https://github.com/deskmetrics/MSI								}
+{     GitHub Repository:     	                                        }
+{     https://github.com/deskmetrics/InstallerMetrics		        }
 {                                                                       }
 {     This code is provided under the DeskMetrics Modified BSD License  }
 {     A copy of this license has been distributed in a file called      }
