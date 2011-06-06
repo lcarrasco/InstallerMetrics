@@ -3,10 +3,13 @@
 {     DeskMetrics Installer Library		                        }
 {     Copyright (c) 2010-2011 DeskMetrics Limited                       }
 {           							        }	
-{     Compiled with Embarcadero Delphi 2009			        }
+{     Compiled with Embarcadero(r) Delphi 2007/2009			}
+{     Compiled with Microsoft(r) Visual Studio 2010		        }
 {                                                                       }
-{     http://deskmetrics.com                                            }
-{     http://support.deskmetrics.com                                    }
+{     http://deskmetrics.com                   				}
+{									}
+{     Documentation: http://docs.deskmetrics.com			}
+{     Support:       http://support.deskmetrics.com                     }
 {                                                                       }
 {     GitHub Repository:     	                                        }
 {     https://github.com/deskmetrics/InstallerMetrics		        }
