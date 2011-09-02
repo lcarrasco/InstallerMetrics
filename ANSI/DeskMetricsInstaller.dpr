@@ -20,12 +20,9 @@ uses
   Windows,
   dskMetricsConsts in 'dskMetricsConsts.pas',
   dskMetricsInternals in 'dskMetricsInternals.pas',
-  dskMetricsVars in 'dskMetricsVars.pas',
-  dskMetricsMSI in 'dskMetricsMSI.pas';
+  dskMetricsVars in 'dskMetricsVars.pas';
 
-{$R *.res}
-
-function DeskMetricsTrackInstallation(FApplicationID: string; FApplicationVersion: string): Integer; stdcall;
+function DeskMetricsTrackInstallation(FApplicationID: PChar; FApplicationVersion: PChar): Integer; stdcall;
 begin
   try
     FAppID              := AnsiString(FApplicationID);
@@ -37,7 +34,7 @@ begin
   end;
 end;
 
-function DeskMetricsTrackUninstallation(FApplicationID: string; FApplicationVersion: string): Integer; stdcall;
+function DeskMetricsTrackUninstallation(FApplicationID: PChar; FApplicationVersion: PChar): Integer; stdcall;
 begin
   try
     FAppID              := AnsiString(FApplicationID);
@@ -49,29 +46,9 @@ begin
   end;
 end;
 
-function DeskMetricsMSITrackInstallation(const hInstall: Integer): UINT; stdcall;
-begin
-  try
-    Result := _MSITrackInstallation(hInstall);
-  except
-    Result := 1607; {ERROR_UNKNOWN_COMPONENT}
-  end;
-end;
-
-function DeskMetricsMSITrackUninstallation(const hInstall: Integer): UINT; stdcall;
-begin
-  try
-    Result := _MSITrackUninstallation(hInstall);
-  except
-    Result := 1607; {ERROR_UNKNOWN_COMPONENT}
-  end;
-end;
-
 exports
   DeskMetricsTrackInstallation,
-  DeskMetricsTrackUninstallation,
-  DeskMetricsMSITrackInstallation,
-  DeskMetricsMSITrackUninstallation;
+  DeskMetricsTrackUninstallation;
 
 begin
   FPostServer       := DEFAULTSERVER;

@@ -12,7 +12,7 @@ SolidCompression=yes
 OutputDir=userdocs:Inno Setup Examples Output
 
 [Files]
-Source: "DeskMetricsInstaller.dll";   DestDir: "{app}"; Flags: ignoreversion;
+Source: DeskMetricsInstaller.dll; DestDir: {app}; Flags: ignoreversion
 
 [UninstallDelete]
 Name: {app}; Type: filesandordirs
@@ -22,8 +22,8 @@ const
   FAppID      = 'YOUR APPLICATION ID';
   FAppVersion = '1.0';
 
-function DeskMetricsTrackInstallation(FApplicationID: string; FApplicationVersion: string): Integer; external 'DeskMetricsTrackInstallation@files:DeskMetricsInstaller.dll stdcall';
-function DeskMetricsTrackUninstallation(FApplicationID: string; FApplicationVersion: string): Integer; external 'DeskMetricsTrackUninstallation@{app}\DeskMetricsInstaller.dll stdcall uninstallonly';
+function DeskMetricsTrackInstallation(FApplicationID: PChar; FApplicationVersion: PChar): Integer; external 'DeskMetricsTrackInstallation@files:DeskMetricsInstaller.dll stdcall';
+function DeskMetricsTrackUninstallation(FApplicationID: PChar; FApplicationVersion: PChar): Integer; external 'DeskMetricsTrackUninstallation@{app}\DeskMetricsInstaller.dll stdcall uninstallonly';
 
 function NextButtonClick(CurPageID: Integer): Boolean;
 var
@@ -43,4 +43,3 @@ begin
   except
   end;
 end;
-

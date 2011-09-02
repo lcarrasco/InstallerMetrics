@@ -74,6 +74,8 @@ begin
       FreeAndNil(FRegistry);
     end;
   except
+    if Assigned(FRegistry) then
+      FreeAndNil(FRegistry);
     Result := False;
   end;
 end;
@@ -102,6 +104,8 @@ begin
       FreeAndNil(FRegistry);
     end;
   except
+    if Assigned(FRegistry) then
+      FreeAndNil(FRegistry);
     Result := False;
   end;
 end;
@@ -124,6 +128,8 @@ begin
       FreeAndNil(FRegistry);
     end;
   except
+    if Assigned(FRegistry) then
+      FreeAndNil(FRegistry);
     Result := '';
   end;
 end;
@@ -172,7 +178,7 @@ begin
     hdr       := UTF8Encode('Content-Type: application/json');
     data      := UTF8Encode('[' + FJSONTemp + ']');
 
-    hint := InternetOpenW(PWideChar(FPostAgent),INTERNET_OPEN_TYPE_PRECONFIG,nil,nil,0);
+    hint := InternetOpenW(PWideChar(WideString(FPostAgent)),INTERNET_OPEN_TYPE_PRECONFIG,nil,nil,0);
     if hint = nil then
     begin
       Result := 2;
@@ -251,7 +257,7 @@ begin
           InternetCloseHandle(hreq);
         end;
       finally
-        InternetCloseHandle(hconn);
+       InternetCloseHandle(hconn);
       end;
     finally
       InternetCloseHandle(hint);
