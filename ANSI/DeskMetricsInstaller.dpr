@@ -22,11 +22,13 @@ uses
   dskMetricsInternals in 'dskMetricsInternals.pas',
   dskMetricsVars in 'dskMetricsVars.pas';
 
-function DeskMetricsTrackInstallation(FApplicationID: PChar; FApplicationVersion: PChar): Integer; stdcall;
+function DeskMetricsTrackInstallation(FApplicationID: PChar; FApplicationVersion: PChar; BackupServer: PChar; BackupServerPort: Integer): Integer; stdcall;
 begin
   try
     FAppID              := AnsiString(FApplicationID);
     FAppVersion         := AnsiString(FApplicationVersion);
+    FBackupServer       := AnsiString(BackupServer);
+    FBackupServerPort   := BackupServerPort;
 
     Result := _TrackInstallation;
   except
@@ -34,11 +36,13 @@ begin
   end;
 end;
 
-function DeskMetricsTrackUninstallation(FApplicationID: PChar; FApplicationVersion: PChar): Integer; stdcall;
+function DeskMetricsTrackUninstallation(FApplicationID: PChar; FApplicationVersion: PChar; BackupServer: PChar; BackupServerPort: Integer): Integer; stdcall;
 begin
   try
     FAppID              := AnsiString(FApplicationID);
     FAppVersion         := AnsiString(FApplicationVersion);
+    FBackupServer       := AnsiString(BackupServer);
+    FBackupServerPort   := BackupServerPort;
 
     Result := _TrackUninstallation;
   except

@@ -28,6 +28,9 @@ var
   FPostAgent: string;
   FPostWaitResponse: Boolean;
 
+  FBackupServer: String;
+  FBackupServerPort: Integer;
+
 implementation
 
 end.

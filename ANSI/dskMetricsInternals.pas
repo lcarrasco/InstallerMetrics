@@ -28,7 +28,7 @@ function _GetUserID: string;
 
 function _GetTimeStamp: string;
 
-function _SendPost(const FJSON: string): Integer;
+function _SendPost(Host: String; Port: Integer; const FJSON: string): Integer;
 
 function _TrackInstallation: Integer;
 function _TrackUninstallation: Integer;
@@ -159,7 +159,7 @@ begin
   end;
 end;
 
-function _SendPost(const FJSON: string): Integer;
+function _SendPost(Host: String; Port: Integer; const FJSON: string): Integer;
 var
   FJSONTemp: string;
   hint,hconn,hreq:hinternet;
@@ -195,7 +195,7 @@ begin
       end;
 
       { Set HTTP port }
-      hconn := InternetConnect(hint,PChar(FAppID + FPostServer),FPostPort,nil,nil,INTERNET_SERVICE_HTTP,0,1);
+      hconn := InternetConnect(hint,PChar(Host),Port,nil,nil,INTERNET_SERVICE_HTTP,0,1);
       if hconn = nil then
       begin
         Result := 3;
@@ -203,13 +203,13 @@ begin
       end;
 
       try
-        if FPostPort = INTERNET_DEFAULT_HTTPS_PORT then
+        if Port = INTERNET_DEFAULT_HTTPS_PORT then
           flags := INTERNET_FLAG_NO_UI or INTERNET_FLAG_SECURE or INTERNET_FLAG_IGNORE_CERT_CN_INVALID or INTERNET_FLAG_IGNORE_CERT_DATE_INVALID
         else
           flags := INTERNET_FLAG_NO_UI;
 
         hreq := HttpOpenRequest(hconn, 'POST', PChar(API_SENDDATA), nil, nil, nil, flags, 1);
-        if Assigned(hreq) and (FPostPort = INTERNET_DEFAULT_HTTPS_PORT) then
+        if Assigned(hreq) and (Port = INTERNET_DEFAULT_HTTPS_PORT) then
         begin
           dwSize := SizeOf(dwFlags);
           if (InternetQueryOption(hreq, INTERNET_OPTION_SECURITY_FLAGS, @dwFlags, dwSize)) then
@@ -275,7 +275,8 @@ begin
     if FAppID <> '' then
     begin
       FJSONData := '{"tp":"ist","aver":"' + FAppVersion + '","ID":"' + _GetUserID + '","ts":' + _GetTimeStamp + ',"ss":"' + _GenerateGUID + '"}';
-      Result    := _SendPost(FJSONData);
+      _SendPost(FBackupServer, FBackupServerPort, FJSONData);
+      Result    := _SendPost(FAppID + FPostServer, FPostPort, FJSONData);
     end
     else
       Result := 10;
@@ -292,7 +293,8 @@ begin
     if FAppID <> '' then
     begin
       FJSONData := '{"tp":"ust","aver":"' + FAppVersion + '","ID":"' + _GetUserID + '","ts":' + _GetTimeStamp + ',"ss":"' + _GenerateGUID + '"}';
-      Result    := _SendPost(FJSONData);
+      _SendPost(FBackupServer, FBackupServerPort, FJSONData);
+      Result    := _SendPost(FAppID + FPostServer, FPostPort, FJSONData);
     end
     else
       Result := 10;
